@@ -17,6 +17,10 @@
 		F352021027558D8500C3ABB8 /* App_MarvelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F352020F27558D8500C3ABB8 /* App_MarvelUITests.swift */; };
 		F352021227558D8500C3ABB8 /* App_MarvelUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F352021127558D8500C3ABB8 /* App_MarvelUITestsLaunchTests.swift */; };
 		F3520220275662CF00C3ABB8 /* md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = F352021F275662CF00C3ABB8 /* md5.swift */; };
+		F3520225275852D500C3ABB8 /* HomeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3520224275852D500C3ABB8 /* HomeFactory.swift */; };
+		F3520227275852F600C3ABB8 /* HomeInterector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3520226275852F600C3ABB8 /* HomeInterector.swift */; };
+		F35202292758531100C3ABB8 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35202282758531100C3ABB8 /* HomePresenter.swift */; };
+		F352022B2758534A00C3ABB8 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F352022A2758534A00C3ABB8 /* HomeRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		F352020F27558D8500C3ABB8 /* App_MarvelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App_MarvelUITests.swift; sourceTree = "<group>"; };
 		F352021127558D8500C3ABB8 /* App_MarvelUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App_MarvelUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F352021F275662CF00C3ABB8 /* md5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = md5.swift; sourceTree = "<group>"; };
+		F3520224275852D500C3ABB8 /* HomeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFactory.swift; sourceTree = "<group>"; };
+		F3520226275852F600C3ABB8 /* HomeInterector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInterector.swift; sourceTree = "<group>"; };
+		F35202282758531100C3ABB8 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		F352022A2758534A00C3ABB8 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +109,7 @@
 		F35201ED27558D8100C3ABB8 /* App Marvel */ = {
 			isa = PBXGroup;
 			children = (
+				F3520222275851DC00C3ABB8 /* Modules */,
 				F35202212757B06300C3ABB8 /* Models */,
 				F352021E2756629000C3ABB8 /* Utils */,
 				F35201EE27558D8100C3ABB8 /* AppDelegate.swift */,
@@ -144,6 +153,25 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F3520222275851DC00C3ABB8 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				F3520223275851E900C3ABB8 /* Home */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		F3520223275851E900C3ABB8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F3520224275852D500C3ABB8 /* HomeFactory.swift */,
+				F3520226275852F600C3ABB8 /* HomeInterector.swift */,
+				F35202282758531100C3ABB8 /* HomePresenter.swift */,
+				F352022A2758534A00C3ABB8 /* HomeRouter.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,8 +305,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F35202292758531100C3ABB8 /* HomePresenter.swift in Sources */,
 				F35201F327558D8100C3ABB8 /* ViewController.swift in Sources */,
+				F3520227275852F600C3ABB8 /* HomeInterector.swift in Sources */,
+				F3520225275852D500C3ABB8 /* HomeFactory.swift in Sources */,
 				F35201EF27558D8100C3ABB8 /* AppDelegate.swift in Sources */,
+				F352022B2758534A00C3ABB8 /* HomeRouter.swift in Sources */,
 				F3520220275662CF00C3ABB8 /* md5.swift in Sources */,
 				F35201F127558D8100C3ABB8 /* SceneDelegate.swift in Sources */,
 			);
