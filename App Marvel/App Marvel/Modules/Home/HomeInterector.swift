@@ -16,16 +16,21 @@ protocol HomeInteracting: AnyObject {
 }
 
 final class HomeInteractor {
+    let manager:MarvelManager
     
     weak var presenter: HomeInteracting?
+    
+    init(manager: MarvelManager) {
+        self.manager = manager
+    }
 
 }
 
 extension HomeInteractor: HomeInteractInput {
 
     func loadCard() {
-    
+        self.manager.getCharacters(GetCharacters()) { [weak self] result in
+            print(result)
+        }
     }
 }
-
-
