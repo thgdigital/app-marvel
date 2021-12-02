@@ -6,3 +6,26 @@
 //
 
 import Foundation
+
+protocol HomeInteractInput: AnyObject{
+    func loadCard()
+}
+
+protocol HomeInteracting: AnyObject {
+    
+}
+
+final class HomeInteractor {
+    
+    weak var presenter: HomeInteracting?
+
+}
+
+extension HomeInteractor: HomeInteractInput {
+
+    func loadCard() {
+    
+    }
+}
+
+
