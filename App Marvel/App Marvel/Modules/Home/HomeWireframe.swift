@@ -13,8 +13,9 @@ final class HomeWireframe {
     var navigation: UINavigationController?
     weak var viewController: UIViewController?
     
-    func start() -> UINavigationController {
-        let homeController  = HomeFactory.make()
+    func start(apiClient: Client) -> UINavigationController {
+        let manager = MarvelManager(client: apiClient)
+        let homeController  = HomeFactory.make(manager: manager)
         let navigationControler = UINavigationController(rootViewController: homeController)
         viewController = homeController
         navigation = navigationControler

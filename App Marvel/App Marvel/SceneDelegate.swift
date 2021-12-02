@@ -19,7 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = HomeWireframe().start()
+        let apiClient =  MarvelApiClient(publicKey: "650e801e1408159969078d2a1361c71c", privateKey: "20112b45612fd05f0d21d80d70bc8c971695c7f1")
+        window?.rootViewController = HomeWireframe().start(apiClient: apiClient)
         window?.makeKeyAndVisible()
     }
 

@@ -13,7 +13,7 @@ protocol Client {
 }
 public typealias ResultCallback<Value> = (Result<Value, Error>) -> Void
 
-class MarvelApiCient: Client {
+class MarvelApiClient: Client {
     private let baseEndpointUrl = URL(string: "https://gateway.marvel.com:443/v1/public/")!
     var dataTask: URLSessionDataTask?
     let session: URLSession
