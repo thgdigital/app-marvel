@@ -7,13 +7,12 @@
 
 import UIKit
 
-public protocol HomeDisplaying: AnyObject {
-    
-}
-
-class HomeViewController: UIViewController {
+class HomeViewController: UITableViewController {
     
     let presenter: HomePresentInput
+    let cellID = "cellID"
+    
+    var display: [ComicCharacterDisplay] = []
     
     public init(presenter: HomePresentInput) {
         self.presenter = presenter
@@ -23,7 +22,7 @@ class HomeViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         buildLayout()
@@ -32,7 +31,10 @@ class HomeViewController: UIViewController {
     
     func buildViewHierarchy() {}
     func setupConstraints() {}
-    func configureViews() {}
+    
+    func configureViews() {
+        tableView.register(CharacterCell.self, forCellReuseIdentifier: cellID)
+    }
     func configureStyles() {
         view.backgroundColor = .white
     }
@@ -45,6 +47,38 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: HomeDisplaying {
+extension HomeViewController: HomePresenting {
+    func loadDisplay(display: [ComicCharacterDisplay]) {
+        self.display = display
+        tableView.reloadData()
+    }
+}
+
+extension HomeViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        display.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? CharacterCell else {
+            return UITableViewCell()
+        }
+        
+        cell.setup(display: display[indexPath.row])
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return  UITableView.automaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didSelected(id: display[indexPath.row].id)
+    }
     
 }

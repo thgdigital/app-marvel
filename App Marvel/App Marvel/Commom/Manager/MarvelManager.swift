@@ -21,5 +21,16 @@ class MarvelManager {
         }
     }
     
+    func image<T: APIRequest>(_ request: T, completionHandle: @escaping ResultCallback<DataContainer<T.Response>>) {
+        client.dataTask(request) { response in
+            completionHandle(response)
+        }
+    }
+    
+    func getComics<T: APIRequest>(_ request: T, completionHandle: @escaping ResultCallback<DataContainer<T.Response>>) {
+        client.dataTask(request) { response in
+            completionHandle(response)
+        }
+    }
 }
 
